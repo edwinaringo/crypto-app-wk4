@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
                     String name = mNameEditText.getText().toString();
                     Log.d(TAG, name);
                     Intent intent = new Intent(MainActivity.this, CryptoActivity.class);
+                    intent.putExtra("name", name);
                     startActivity(intent);
                 }
             });
