@@ -23,6 +23,17 @@
         android:textColor="@color/white"
         android:textSize="40dp" />
 
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/nameEditText"
+        android:background="@color/white"
+        android:layout_above="@+id/findCryptosButton"
+        android:layout_marginBottom="10dp"
+        android:padding="10dp"
+        android:hint="Enter Name"
+        android:layout_centerHorizontal="true" />
+
     <Button
         android:id="@+id/findCryptosButton"
         android:layout_width="wrap_content"
