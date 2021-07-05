@@ -18,7 +18,7 @@ public class ListActivity extends AppCompatActivity {
     private Button mFindListButton;
 
     private String[] cryptos = new String[] {
-            "Ethereum (ETH)", "Litecoin (LTC)","Cardano (ADA)","Polkadot (DOT)","Bitcoin Cash (BCH)", "Stellar (XLM)","Chainlink","Binance Coin (BNB)"};
+            "Bitcoin (BTC)", "Ethereum (ETH)", "Tether (USDT)", "Litecoin (LTC)","Cardano (ADA)", "Dogecoin (DOGE)","Polkadot (DOT)","Bitcoin Cash (BCH)", "Stellar (XLM)","Chainlink","Binance Coin (BNB)","Solana (SOL)", "Polygon (MATIC)"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
