@@ -12,10 +12,14 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import butterknife.BindView;
+
 public class ListActivity extends AppCompatActivity {
-    private TextView mNameTextView;
-    private ListView mListView;
-    private Button mFindListButton;
+
+
+    @BindView(R.id.nameTextView) TextView mNameTextView;
+    @BindView(R.id.listView) ListView mListView;
+
 
     private String[] cryptos = new String[] {
             "Bitcoin (BTC)", "Ethereum (ETH)", "Tether (USDT)", "Litecoin (LTC)","Cardano (ADA)", "Dogecoin (DOGE)","Polkadot (DOT)","Bitcoin Cash (BCH)", "Stellar (XLM)","Chainlink","Binance Coin (BNB)","Solana (SOL)", "Polygon (MATIC)"};

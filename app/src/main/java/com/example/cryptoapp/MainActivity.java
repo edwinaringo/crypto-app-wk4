@@ -9,10 +9,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import butterknife.BindView;
+
 public class MainActivity extends AppCompatActivity {
     public static final String TAG = MainActivity.class.getSimpleName();
-    private Button mFindCryptosButton;
-    private EditText mNameEditText;
+
+
+    @BindView(R.id.findCryptosButton) Button mFindCryptosButton;
+    @BindView(R.id.nameEditText) EditText mNameEditText;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

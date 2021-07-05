@@ -9,9 +9,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import butterknife.BindView;
+
 public class CryptoActivity extends AppCompatActivity {
-    private TextView mNameTextView;
-    private Button mFindListButton;
+
+
+    @BindView(R.id.nameTextView) TextView mNameTextView;
+    @BindView(R.id.findListButton) Button mFindListButton;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
