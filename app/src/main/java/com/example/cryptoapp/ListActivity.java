@@ -35,6 +35,7 @@ public class ListActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 String restaurant = ((TextView)view).getText().toString();
+                Toast.makeText(ListActivity.this, restaurant, Toast.LENGTH_LONG).show();
             }
         });
         Intent intent = getIntent();
