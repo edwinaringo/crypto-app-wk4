@@ -14,13 +14,21 @@
         android:hint="Search Crypto Currency"
         />
 
-    <ListView
+    <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/idRVCurrencies"
+        />
+
+    <ProgressBar
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/listView"
-        android:layout_below="@+id/EditSearch"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:id="@+id/idPBLoading"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        />
+
+
 
 
 
