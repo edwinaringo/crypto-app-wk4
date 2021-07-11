@@ -15,12 +15,16 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 import butterknife.BindView;
 
 public class ListActivity extends AppCompatActivity {
     private EditText searchEdit;
     private RecyclerView currenciesRV;
     private ProgressBar loadingPB;
+    private ArrayList<CurrencyRVModal> currencyRVModalArrayList;
+    private CurrencyRVAdapter currencyRVAdapter;
 
 
     @Override
