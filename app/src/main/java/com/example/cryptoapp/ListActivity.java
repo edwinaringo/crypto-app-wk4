@@ -6,6 +6,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -55,6 +57,37 @@ public class ListActivity extends AppCompatActivity {
         currenciesRV.setAdapter(currencyRVAdapter);
         getCurrencyData();
 
+        searchEdit.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+    }
+
+    private void filterCurrencies(String currency){
+        ArrayList<CurrencyRVModal> filteredList = new ArrayList<>();
+        for (CurrencyRVModal item : currencyRVModalArrayList){
+            if(item.getName().toLowerCase().contains(currency.toLowerCase())){
+                filteredList.add(item);
+            }
+        }
+        if(filteredList.isEmpty()){
+            Toast.makeText(this, "No currency found for searched query", Toast.LENGTH_SHORT).show();
+        }else{
+            currencyRVAdapter.filterList(filteredList);
+        }
     }
 
     private void getCurrencyData(){
