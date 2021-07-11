@@ -16,6 +16,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -23,9 +24,13 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import butterknife.BindView;
 
@@ -60,7 +65,21 @@ public class ListActivity extends AppCompatActivity {
             @Override
             public void onResponse(JSONObject response) {
                 loadingPB.setVisibility(View.GONE);
-
+                try {
+                    JSONArray dataArray = response.getJSONArray("data");
+                    for(int i=0; i<dataArray.length(); i++){
+                        JSONObject dataObj = dataArray.getJSONObject(i);
+                        String name = dataObj.getString("");
+                        String symbol = dataObj.getString("symbol");
+                        JSONObject quote = dataObj.getJSONObject("quote");
+                        JSONObject USD = quote.getJSONObject("USD");
+                        double price = USD.getDouble("price");
+                        currencyRVModalArrayList.add(new CurrencyRVModal(name,symbol,price));
+                    }
+                }catch (JSONException e){
+                    e.printStackTrace();
+                    Toast.makeText(ListActivity.this, "Failed to extract JSON data", Toast.LENGTH_SHORT).show();
+                }
             }
         }, new Response.ErrorListener() {
             @Override
@@ -69,7 +88,14 @@ public class ListActivity extends AppCompatActivity {
                 Toast.makeText(ListActivity.this, "Sorry! Could not find data...", Toast.LENGTH_SHORT).show();
 
             }
-        });
+        }){
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                HashMap<String,String> headers = new HashMap<>();
+                headers.put("X-CMC_PRO_API_KEY", "0c6855b6-a6b0-468a-93f7-951e070d355d");
+                return headers;
+            }
+        };
         requestQueue.add(jsonObjectRequest);
 
     }
