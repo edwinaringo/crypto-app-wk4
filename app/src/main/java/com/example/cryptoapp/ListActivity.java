@@ -76,6 +76,7 @@ public class ListActivity extends AppCompatActivity {
                         double price = USD.getDouble("price");
                         currencyRVModalArrayList.add(new CurrencyRVModal(name,symbol,price));
                     }
+                    currencyRVAdapter.notifyDataSetChanged();
                 }catch (JSONException e){
                     e.printStackTrace();
                     Toast.makeText(ListActivity.this, "Failed to extract JSON data", Toast.LENGTH_SHORT).show();
