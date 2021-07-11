@@ -1,6 +1,7 @@
 package com.example.cryptoapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
@@ -34,6 +35,15 @@ public class ListActivity extends AppCompatActivity {
         searchEdit = findViewById(R.id.EditSearch);
         currenciesRV = findViewById(R.id.idRVCurrencies);
         loadingPB = findViewById(R.id.idPBLoading);
+        currencyRVModalArrayList = new ArrayList<>();
+        currencyRVAdapter = new CurrencyRVAdapter(currencyRVModalArrayList,this);
+        currenciesRV.setLayoutManager(new LinearLayoutManager(this));
+        currenciesRV.setAdapter(currencyRVAdapter);
+        getCurrencyData();
+
+    }
+
+    private void getCurrencyData(){
 
     }
 }
