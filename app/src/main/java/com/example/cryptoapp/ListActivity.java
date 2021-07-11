@@ -53,16 +53,20 @@ public class ListActivity extends AppCompatActivity {
     }
 
     private void getCurrencyData(){
+        loadingPB.setVisibility(View.VISIBLE);
         String url = "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest";
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
+                loadingPB.setVisibility(View.GONE);
 
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+                loadingPB.setVisibility(View.GONE);
+                Toast.makeText(ListActivity.this, "Sorry! Could not find data...", Toast.LENGTH_SHORT).show();
 
             }
         });
