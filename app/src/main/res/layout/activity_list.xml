@@ -6,6 +6,13 @@
     android:layout_height="match_parent"
     tools:context=".ListActivity">
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/idRVCurrencies"
+        android:layout_below="@+id/EditSearch"
+        />
+
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -14,11 +21,6 @@
         android:hint="Search Crypto Currency"
         />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/idRVCurrencies"
-        />
 
     <ProgressBar
         android:layout_width="wrap_content"
