@@ -44,6 +44,7 @@ public class ListActivity extends AppCompatActivity {
     }
 
     private void getCurrencyData(){
+        String url = "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest";
 
     }
 }
