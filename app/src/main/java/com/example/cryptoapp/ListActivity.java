@@ -70,6 +70,7 @@ public class ListActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
+                filterCurrencies(s.toString());
 
             }
         });
@@ -84,7 +85,7 @@ public class ListActivity extends AppCompatActivity {
             }
         }
         if(filteredList.isEmpty()){
-            Toast.makeText(this, "No currency found for searched query", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Could not find ", Toast.LENGTH_SHORT).show();
         }else{
             currencyRVAdapter.filterList(filteredList);
         }
@@ -102,7 +103,7 @@ public class ListActivity extends AppCompatActivity {
                     JSONArray dataArray = response.getJSONArray("data");
                     for(int i=0; i<dataArray.length(); i++){
                         JSONObject dataObj = dataArray.getJSONObject(i);
-                        String name = dataObj.getString("");
+                        String name = dataObj.getString("name");
                         String symbol = dataObj.getString("symbol");
                         JSONObject quote = dataObj.getJSONObject("quote");
                         JSONObject USD = quote.getJSONObject("USD");
@@ -125,7 +126,7 @@ public class ListActivity extends AppCompatActivity {
         }){
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
-                HashMap<String,String> headers = new HashMap<>();
+                HashMap<String, String> headers = new HashMap<>();
                 headers.put("X-CMC_PRO_API_KEY", "0c6855b6-a6b0-468a-93f7-951e070d355d");
                 return headers;
             }

@@ -5,7 +5,7 @@
     android:layout_margin="4dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="4dp"
-    app:cardBackgroundColor="@color/black"
+
     app:cardElevation="3dp">
 
     <RelativeLayout
@@ -21,7 +21,7 @@
             android:padding="3dp"
             android:text="Symbol"
             android:layout_toLeftOf="@id/idTVCurrencyRate"
-            android:textColor="@color/white"
+
             android:textStyle="bold"/>
 
         <TextView
@@ -30,7 +30,7 @@
             android:layout_below="@+id/idTVSymbol"
             android:text="Name"
             android:id="@+id/idTVCurrencyName"
-            android:textColor="@color/white"
+
             android:padding="3dp"
             android:layout_margin="2dp"
             />
@@ -41,7 +41,7 @@
             android:layout_alignParentEnd="true"
             android:text="Rate"
             android:id="@+id/idTVCurrencyRate"
-            android:textColor="@color/white"
+            
             android:layout_marginRight="3dp"
             android:layout_marginTop="2dp"
             android:layout_marginLeft="2dp"
