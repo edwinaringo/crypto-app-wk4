@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -25,6 +26,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.cryptoapp.ui.MainFragment;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -48,6 +50,9 @@ public class ListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
+
+        MainFragment fragment = MainFragment.newInstance();
+
         searchEdit = findViewById(R.id.EditSearch);
         currenciesRV = findViewById(R.id.idRVCurrencies);
         loadingPB = findViewById(R.id.idPBLoading);
@@ -56,6 +61,8 @@ public class ListActivity extends AppCompatActivity {
         currenciesRV.setLayoutManager(new LinearLayoutManager(this));
         currenciesRV.setAdapter(currencyRVAdapter);
         getCurrencyData();
+
+
 
         searchEdit.addTextChangedListener(new TextWatcher() {
             @Override
