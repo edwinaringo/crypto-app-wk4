@@ -1,6 +1,7 @@
 package com.example.cryptoapp;
-
+// model class to hold the objects
 public class CurrencyRVModal {
+    //declared variables
     private String name;
     private String symbol;
     private double price;
