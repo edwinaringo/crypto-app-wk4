@@ -3,12 +3,18 @@ package com.example.cryptoapp.ui;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.cryptoapp.CurrencyRVAdapter;
+import com.example.cryptoapp.CurrencyRVModal;
 import com.example.cryptoapp.R;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -16,7 +22,6 @@ import com.example.cryptoapp.R;
  * create an instance of this fragment.
  */
 public class MainFragment extends Fragment {
-
 
     public MainFragment() {
         // Required empty public constructor
@@ -40,4 +45,6 @@ public class MainFragment extends Fragment {
                              Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_main, container, false);
     }
+
+
 }

@@ -1,6 +1,7 @@
 package com.example.cryptoapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -39,6 +40,7 @@ import java.util.Map;
 import butterknife.BindView;
 
 public class ListActivity extends AppCompatActivity {
+    //declaring variables
     private EditText searchEdit;
     private RecyclerView currenciesRV;
     private ProgressBar loadingPB;
@@ -50,9 +52,10 @@ public class ListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
-
+//fragment implementation
         MainFragment fragment = MainFragment.newInstance();
 
+//finding all the views by ID
         searchEdit = findViewById(R.id.EditSearch);
         currenciesRV = findViewById(R.id.idRVCurrencies);
         loadingPB = findViewById(R.id.idPBLoading);
@@ -83,7 +86,7 @@ public class ListActivity extends AppCompatActivity {
         });
 
     }
-
+// adding a filter list to method to help search for cryptos
     private void filterCurrencies(String currency){
         ArrayList<CurrencyRVModal> filteredList = new ArrayList<>();
         for (CurrencyRVModal item : currencyRVModalArrayList){
@@ -92,12 +95,12 @@ public class ListActivity extends AppCompatActivity {
             }
         }
         if(filteredList.isEmpty()){
-            Toast.makeText(this, "Could not find ", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Could not find ", Toast.LENGTH_SHORT).show();// incase the searched word cannot be found
         }else{
             currencyRVAdapter.filterList(filteredList);
         }
     }
-
+//methods to retrieve API data
     private void getCurrencyData(){
         loadingPB.setVisibility(View.VISIBLE);
         String url = "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest";
@@ -110,14 +113,15 @@ public class ListActivity extends AppCompatActivity {
                     JSONArray dataArray = response.getJSONArray("data");
                     for(int i=0; i<dataArray.length(); i++){
                         JSONObject dataObj = dataArray.getJSONObject(i);
-                        String name = dataObj.getString("name");
-                        String symbol = dataObj.getString("symbol");
+                        String name = dataObj.getString("name");// fro the crypto currency name
+                        String symbol = dataObj.getString("symbol");//symbol for the cru]ypto currencies
                         JSONObject quote = dataObj.getJSONObject("quote");
                         JSONObject USD = quote.getJSONObject("USD");
-                        double price = USD.getDouble("price");
+                        double price = USD.getDouble("price");// price for the cryptos in USD
                         currencyRVModalArrayList.add(new CurrencyRVModal(name,symbol,price));
                     }
                     currencyRVAdapter.notifyDataSetChanged();
+                    //methods to catch error in case data cannot be found
                 }catch (JSONException e){
                     e.printStackTrace();
                     Toast.makeText(ListActivity.this, "Failed to extract JSON data", Toast.LENGTH_SHORT).show();
@@ -134,7 +138,7 @@ public class ListActivity extends AppCompatActivity {
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
                 HashMap<String, String> headers = new HashMap<>();
-                headers.put("X-CMC_PRO_API_KEY", "0c6855b6-a6b0-468a-93f7-951e070d355d");
+                headers.put("X-CMC_PRO_API_KEY", "0c6855b6-a6b0-468a-93f7-951e070d355d");// My API key
                 return headers;
             }
         };

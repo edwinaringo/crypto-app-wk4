@@ -17,10 +17,12 @@ public class CurrencyRVAdapter extends RecyclerView.Adapter<CurrencyRVAdapter.Vi
     private Context context;
     private static DecimalFormat df2 = new DecimalFormat("#.##");
 
+
     //constructor
     public CurrencyRVAdapter(ArrayList<CurrencyRVModal> currencyRVModalArrayList, Context context) {
         this.currencyRVModalArrayList = currencyRVModalArrayList;
         this.context = context;
+
     }
 
     public void filterList(ArrayList<CurrencyRVModal> filteredList){
@@ -59,4 +61,5 @@ public class CurrencyRVAdapter extends RecyclerView.Adapter<CurrencyRVAdapter.Vi
             rateTV = itemView.findViewById(R.id.idTVCurrencyRate);
         }
     }
+
 }
