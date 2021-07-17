@@ -15,8 +15,8 @@ public class MainActivity extends AppCompatActivity {
     public static final String TAG = MainActivity.class.getSimpleName();
 
 
-    @BindView(R.id.findCryptosButton) Button mFindCryptosButton;
-    @BindView(R.id.nameEditText) EditText mNameEditText;
+   // @BindView(R.id.findCryptosButton) Button mFindCryptosButton;
+    //@BindView(R.id.nameEditText) EditText mNameEditText;
 
 
     @Override
@@ -24,17 +24,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mNameEditText = (EditText) findViewById(R.id.nameEditText);
-        mFindCryptosButton = (Button)findViewById(R.id.findCryptosButton);
-            mFindCryptosButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    String name = mNameEditText.getText().toString();
-                    Log.d(TAG, name);
-                    Intent intent = new Intent(MainActivity.this, CryptoActivity.class);
-                    intent.putExtra("name", name);
-                    startActivity(intent);
-                }
-            });
+      //  mNameEditText = (EditText) findViewById(R.id.nameEditText);
+     //   mFindCryptosButton = (Button)findViewById(R.id.findCryptosButton);
+          //  mFindCryptosButton.setOnClickListener(new View.OnClickListener() {
+          //
     }
 }
