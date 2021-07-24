@@ -11,7 +11,7 @@
         android:id="@+id/banner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="2dp"
         android:text="CryptoApp"
         android:textAlignment="center"
         android:textColor="@color/white"
@@ -56,57 +56,59 @@
         android:id="@+id/password"
         android:layout_width="380dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:ems="10"
-        android:textColor="@color/white"
-        android:inputType="textPassword"
-        android:textSize="24sp"
         android:hint="Password"
+        android:inputType="textPassword"
+        android:textColor="@color/white"
         android:textColorHint="@color/white"
-        app:layout_constraintTop_toBottomOf="@id/email"
-        app:layout_constraintRight_toRightOf="parent"
+        android:textSize="24sp"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginTop="30dp"
-        />
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/email" />
 
     <Button
         android:id="@+id/signIn"
         android:layout_width="380dp"
         android:layout_height="70dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="10dp"
         android:backgroundTint="#0ED689"
         android:text="Login"
         android:textSize="26dp"
         android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/password"
-        />
+        app:layout_constraintTop_toBottomOf="@id/password" />
 
     <TextView
         android:id="@+id/forgotPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:layout_marginBottom="2dp"
         android:text="Forgot password"
         android:textColor="@color/white"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@+id/signIn"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginTop="25dp"
-        android:layout_marginLeft="50dp"/>
+        app:layout_constraintTop_toBottomOf="@+id/signIn" />
 
 
     <TextView
         android:id="@+id/register"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="420dp"
+        android:layout_marginLeft="428dp"
+        android:layout_marginBottom="2dp"
         android:text="Register"
         android:textColor="@color/white"
         android:textSize="16sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toRightOf="@id/forgotPassword"
-        app:layout_constraintTop_toTopOf="@+id/forgotPassword" />
+        app:layout_constraintTop_toTopOf="@+id/forgotPassword"
+        app:layout_constraintVertical_bias="0.0" />
 
     <ProgressBar
         android:id="@+id/progressBar"
