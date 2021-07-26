@@ -7,6 +7,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
@@ -47,6 +49,12 @@ public class RegisterUserActivity extends AppCompatActivity implements View.OnCl
         editTextPassword = (EditText) findViewById(R.id.password);
 
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
+    }
+
+    public void toBlink(View view) {
+        Button button = (Button)findViewById(R.id.registerUser);
+        Animation animation = AnimationUtils.loadAnimation(this,R.anim.blink);
+
     }
 
     @Override
