@@ -25,6 +25,7 @@ import com.google.firebase.auth.FirebaseUser;
 import butterknife.BindView;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+    //declaring the variables
     private TextView register;
     private EditText editTextEmail, editTextPassword;
     private Button signIn;
@@ -52,7 +53,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-
+//blink animation function
     public void toBlink(View view) {
         Button button = (Button)findViewById(R.id.signIn);
         Animation animation = AnimationUtils.loadAnimation(this,R.anim.blink);
@@ -60,6 +61,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
+    //giving functionality to the buttons
     @Override
     public void onClick(View v) {
         switch (v.getId()){
@@ -71,10 +73,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 userLogin();
                 break;
         }
-
     }
 
-
+    //adding validation to the form
     private void userLogin() {
         String email = editTextEmail.getText().toString().trim();
         String password = editTextPassword.getText().toString().trim();
@@ -106,6 +107,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         progressBar.setVisibility(View.VISIBLE);
 
+    //adding the authorization using firebase.
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override

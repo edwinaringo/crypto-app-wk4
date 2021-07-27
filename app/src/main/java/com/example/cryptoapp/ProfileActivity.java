@@ -19,7 +19,7 @@ import butterknife.BindView;
 
 public class ProfileActivity extends AppCompatActivity {
 
-
+// binding views using butter knife.
     @BindView(R.id.nameTextView) TextView mNameTextView;
     @BindView(R.id.findListButton) Button mFindListButton;
     @BindView(R.id.signOut) Button mSignOut;
@@ -29,7 +29,7 @@ public class ProfileActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
-
+    // adding the log out function.
         mSignOut = (Button) findViewById(R.id.signOut);
         mSignOut.setOnClickListener(new View.OnClickListener() {
             @Override
