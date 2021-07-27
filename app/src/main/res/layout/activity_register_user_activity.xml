@@ -102,6 +102,7 @@
         android:layout_width="380dp"
         android:layout_height="70dp"
         android:layout_marginTop="24dp"
+        android:onClick="toBlink"
         android:backgroundTint="#0ED6B9"
         android:text="Register User"
         android:textColor="#ffffff"
@@ -110,6 +111,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/password"/>
+
 
     <ProgressBar
         android:id="@+id/progressBar"
@@ -122,6 +124,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"/>
+
+
 
 
 

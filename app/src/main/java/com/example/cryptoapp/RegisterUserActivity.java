@@ -7,6 +7,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
@@ -20,7 +22,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class RegisterUserActivity extends AppCompatActivity implements View.OnClickListener{
-
+    // declared the variables needed
     private TextView banner, registerUser;
     private EditText editTextFullName, editTextAge, editTextEmail, editTextPassword;
     private ProgressBar progressBar;
@@ -33,6 +35,7 @@ public class RegisterUserActivity extends AppCompatActivity implements View.OnCl
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_user_activity);
 
+        //instantiating variables
         mAuth = FirebaseAuth.getInstance();
 
         banner = (TextView) findViewById(R.id.banner);
@@ -48,7 +51,14 @@ public class RegisterUserActivity extends AppCompatActivity implements View.OnCl
 
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
     }
+    // adding the blink animation function.
+    public void toBlink(View view) {
+        Button button = (Button)findViewById(R.id.registerUser);
+        Animation animation = AnimationUtils.loadAnimation(this,R.anim.blink);
 
+    }
+
+    // the onCLick function with different cases
     @Override
     public void onClick(View v) {
         switch (v.getId()){
@@ -62,6 +72,8 @@ public class RegisterUserActivity extends AppCompatActivity implements View.OnCl
 
     }
 
+
+    //adding the register user form authorization.
     private void registerUser() {
         String email = editTextEmail.getText().toString().trim();
         String password = editTextPassword.getText().toString().trim();
@@ -103,6 +115,9 @@ public class RegisterUserActivity extends AppCompatActivity implements View.OnCl
             return;
         }
         progressBar.setVisibility(View.VISIBLE);
+
+
+        //saving the user information onto the firebase database.
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override

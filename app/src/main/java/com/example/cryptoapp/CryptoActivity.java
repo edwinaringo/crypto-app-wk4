@@ -13,6 +13,7 @@ import butterknife.BindView;
 
 public class CryptoActivity extends AppCompatActivity {
 
+    //binding views using butter knife.
 
     @BindView(R.id.nameTextView) TextView mNameTextView;
     @BindView(R.id.findListButton) Button mFindListButton;
