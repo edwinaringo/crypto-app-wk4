@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
@@ -50,6 +52,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
+
+    public void toBlink(View view) {
+        Button button = (Button)findViewById(R.id.signIn);
+        Animation animation = AnimationUtils.loadAnimation(this,R.anim.blink);
+        button.startAnimation(animation);
+
+    }
+
     @Override
     public void onClick(View v) {
         switch (v.getId()){
@@ -64,11 +74,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
+
     private void userLogin() {
         String email = editTextEmail.getText().toString().trim();
         String password = editTextPassword.getText().toString().trim();
 
-        if(email.isEmpty()){
+        if(email.isEmpty()
+        ){
             editTextEmail.setError("Email is required");
             editTextEmail.requestFocus();
             return;

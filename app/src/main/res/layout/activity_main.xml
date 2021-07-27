@@ -75,6 +75,7 @@
         android:layout_marginTop="24dp"
         android:backgroundTint="#0ED689"
         android:text="Login"
+        android:onClick="toBlink"
         android:textSize="26dp"
         android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="parent"
